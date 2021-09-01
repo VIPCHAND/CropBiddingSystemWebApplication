@@ -8,6 +8,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
 import { FarmerHomePageComponent } from './farmer-home-page/farmer-home-page.component';
 import { BidderHomePageComponent } from './bidder-home-page/bidder-home-page.component';
+import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BidderHomePageComponent } from './bidder-home-page/bidder-home-page.com
     RegistrationComponent,
     HomeComponent,
     FarmerHomePageComponent,
-    BidderHomePageComponent
+    BidderHomePageComponent,
+    AdminHomePageComponent
   ],
   imports: [
     BrowserModule,
