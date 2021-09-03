@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FarmerHomePageComponent } from './farmer-home-page/farmer-home-page.component';
 import { BidderHomePageComponent } from './bidder-home-page/bidder-home-page.component';
 import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
+import { CropListComponent } from './crop-list/crop-list.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,15 @@ import { AdminHomePageComponent } from './admin-home-page/admin-home-page.compon
     HomeComponent,
     FarmerHomePageComponent,
     BidderHomePageComponent,
-    AdminHomePageComponent
+    AdminHomePageComponent,
+    CropListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+     HttpClientModule,FormsModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,45 @@
+
+<head>
+
+</head>
+<div class="container">
+    <table class="table table-striped" *ngIf="crops && crops.length > 0 else elseBlock">
+        <thead>
+            <tr>
+                <th>Crop ID</th>
+                <th>Crop Name</th>
+                <th>Crop Type</th>
+                <th>Fertilizer</th>
+                <th>Quantity</th>
+                <th>Base price</th>
+                <th>Farmer Id</th>
+                <th>Delete</th>
+                <th>Edit</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let c of crops" style="text-align: center;">
+                <td>{{c.cropId}}</td>
+                <td>{{c.cropName}}</td>
+                <td>{{c.cropType}}</td>
+                <td>{{c.fertilizer}}</td>
+                <td>{{c.quantity}}</td>
+                <td>{{c.basePrice}}</td>
+                <td>{{c.farmer.farmerId}}</td>
+                <td>
+                    <i class="fas fa-trash"></i>
+                </td>
+                <td>
+                    <i class="fas fa-edit"></i>
+                </td>
+
+            </tr>
+        </tbody>
+
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no employees to display,please add the employees! </h4>
+    </ng-template>
+
+</div>
