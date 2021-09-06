@@ -12,6 +12,18 @@ import { FarmerHomePageComponent } from './farmer-home-page/farmer-home-page.com
 import { BidderHomePageComponent } from './bidder-home-page/bidder-home-page.component';
 import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
 import { CropListComponent } from './crop-list/crop-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
+import { UserService } from './user.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AddCropComponent } from './add-crop/add-crop.component';
+import { EditCropComponent } from './edit-crop/edit-crop.component';
+
 
 @NgModule({
   declarations: [
@@ -22,12 +34,18 @@ import { CropListComponent } from './crop-list/crop-list.component';
     FarmerHomePageComponent,
     BidderHomePageComponent,
     AdminHomePageComponent,
-    CropListComponent
+    CropListComponent,
+    AddCropComponent,
+    EditCropComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-     HttpClientModule,FormsModule
+     HttpClientModule,FormsModule, BrowserAnimationsModule 
+ ,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

@@ -1,2 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<app-crop-list></app-crop-list>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>crop bidding Application</title>
+    <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon" />
+    <!-- Bootstrap , fonts & icons  -->
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Vendor stylesheets  -->
+    <link rel="stylesheet" href="/src/styles.css" />
+    <!-- Custom stylesheet -->
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .flex-item-left {
+        background-color: #f1f1f1;
+        padding: 10px;
+        flex: 50%;
+    }
+
+    .flex-item-right {
+        background-color: dodgerblue;
+        padding: 10px;
+        flex: 50%;
+    }
+
+    /* Responsive layout - makes a one column-layout instead of a two-column layout */
+    @media (max-width: 800px) {
+
+        .flex-item-right,
+        .flex-item-left {
+            flex: 100%;
+        }
+    }
+</style>
+</head>
+
+<body data-theme-mode-panel-active data-theme="light" style="font-family: 'Mazzard H'">
+    <div class="site-wrapper overflow-hidden position-relative">
+        <!-- <header class="
+          site-header site-header--menu-center
+          landing-10-menu
+          site-header--absolute site-header--sticky
+        " style="background-color: white"> -->
+            <div class="container">
+            <nav class="navbar navbar-expand-md  navbar-dark bg-dark">
+            
+                <a routerLink="home" class="nav-item nav-link active" style="color:white"><i class="fas fa-home fa-lg"></i></a>
+            
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+            
+                    <div class="navbar-nav ml-auto">
+                        <a routerLink="login"  class="nav-item nav-link">LOGIN</a>
+                        <a routerLink="croplist"  class="nav-item nav-link">VIEW ALL CROPS</a>
+                        <a routerLink="addcrop"  class="nav-item nav-link">ADD Crop</a>
+                        <a routerLink="contact"  class="nav-item nav-link">CONTACT US</a>
+                        <a routerLink="aboutus"  class="nav-item nav-link">ABOUT US</a>
+                        <a routerLink="logout"  class="nav-item nav-link">LOGOUT</a>
+                    </div>
+                </div>
+            </nav>
+            </div>
+        <!-- </header> -->
+    </div>
+    <!-- nabar end -->
+<div><router-outlet> </router-outlet></div>
+
+
+        <!-- footer area -->
+        <footer class="footer-l10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-border-top"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 col-sm-9">
+                        <div class="row">
+                            <div class="col-xl-9 col-lg-10 col-md-8">
+                                <a href="#"><img src="./image/logos/logo-paste.png" alt="" class="footer-logo" /></a>
+                                <div class="content">
+                                    <p>
+                                        We aim to build network between farmers and bidders
+                                        digitally.
+                                    </p>
+                                </div>
+                                <div class="social-icons">
+                                    <ul class="pl-0 list-unstyled d-flex align-items-end">
+                                        <li class="d-flex flex-column justify-content-center">
+                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                        </li>
+                                        <li class="d-flex flex-column justify-content-center">
+                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li class="d-flex flex-column justify-content-center">
+                                            <a href="#"><i class="fab fa-google"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                <div class="footer-widget">
+                                    <p class="widget-title">Menu</p>
+                                    <ul class="widget-links pl-0 list-unstyled">
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">Features</a></li>
+                                        <li><a href="#">Works</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-4 col-xs-6 pl-md-9 pl-6">
+                                <div class="footer-widget">
+                                    <p class="widget-title">About Us</p>
+                                    <ul class="widget-links pl-0 list-unstyled">
+                                        <li><a href="#">contact </a></li>
+                                        <li><a href="#">Help & Support</a></li>
+                                        <li><a href="#">Privacy and Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <div class="footer-widget">
+                                    <p class="widget-title">Contact Us</p>
+                                    <ul class="widget-links pl-0 list-unstyled">
+                                        <li>
+                                            <img src="https://agrimp.com/assets/icons/phone_icon-d27d3ccfa4eebf5fa5c7419e3def7d15f0e9f47d59de3179c02dd3d22048a98c.svg"
+                                                alt="icon" />
+                                            <a class="strong" href="callto:9876655411"
+                                                style="color: black">9876655411</a>
+                                        </li>
+                                        <img src="https://agrimp.com/assets/icons/mail_icon-4260a55e62b163f2a269cbac2b5f77089abcede1089547cc928bab6785c6902d.svg"
+                                            alt="icon" />
+                                        <a href="mailto:info@cropbidding.com"
+                                            style="color: black">info@cropbidding.com</a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+</body>
+
+</html>

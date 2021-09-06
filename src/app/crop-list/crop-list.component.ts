@@ -13,14 +13,17 @@ export class CropListComponent implements OnInit {
   constructor(private service:CropService,private router: Router) { }
 
   ngOnInit(): any {
-    this.service.getAllCrops().subscribe(
+    this.service.fetchCrop().subscribe(
       response => this.handleSuccessfulResponse(response),
 
     );
+   
+
   }
 
   handleSuccessfulResponse(response:any){
     this.crops = response;
+    console.log(response);
     
   }
 

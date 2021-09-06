@@ -1,0 +1,63 @@
+
+
+    <div align="center" class="container-fluid">
+        
+        <form #addCrop="ngForm" (ngSubmit)='onSubmit(addCrop.value)'>
+
+            <div class="flex-container">
+                <div class="flex-item-left"><label>Crop Name</label></div>
+                <div class="flex-item-right"><input required type="text" name="cropName" #cropname='ngModel' ngModel ></div>
+                <div *ngIf= 'cropname.errors && cropname.touched' class="alert alert-danger">
+                    <div [hidden]='!cropname.errors?.required'> Provide Crop Name</div>
+
+                </div>
+            </div>
+            <div class="flex-container">
+                <div class="flex-item-left"><label>Crop Type</label></div>
+                <div class="flex-item-right"> <select name="cropType" #croptype='ngModel' ngModel>
+                    <option [ngValue]="c.name" *ngFor="let c of cropTypeList">
+                        {{c.name}}
+                    </option>
+                </select></div>
+                <div *ngIf='croptype.errors && croptype.touched' class="alert alert-danger">
+                    <div [hidden]='!croptype.errors?.required'> please Select Crop Type </div>
+                
+                </div>
+            
+            
+            </div>
+            <div class="flex-container">
+                <div class="flex-item-left"> <label>fertilizer</label></div>
+                <div class="flex-item-right"><select name="fertilizer" #fertilizer='ngModel' ngModel>
+                    <option [ngValue]="f.name" *ngFor="let f of fertilizerList">
+                        {{f.name}}
+                    </option>
+                </select></div>
+                <div *ngIf='fertilizer.errors && fertilizer.touched' class="alert alert-danger">
+                    <div [hidden]='!fertilizer.errors?.select'> please Select fertilizer </div>
+            
+                </div>
+            </div>
+            <div class="flex-container">
+                <div class="flex-item-left"><label>Quantity</label></div>
+                <div class="flex-item-right"><input required type="number" minlength="1" name="quantity" #quantity='ngModel' ngModel ></div>
+                <div *ngIf='quantity.errors && quantity.touched' class="alert alert-danger">
+                    <div [hidden]='quantity.errors?.required'> please enter quantity </div>
+                    <div [hidden]='!quantity.errors?.pattern'>quantity should be minimum of 1 length</div>
+            
+                </div>
+            </div>
+            <div  class="flex-container">
+                <div class="flex-item-left"><label>Base Price</label></div>
+                <div class="flex-item-right"><input required type="number" minlength="4" name="basePrice" #baseprice='ngModel' ngModel ></div>
+                <div *ngIf='baseprice.errors && baseprice.touched' class="alert alert-danger">
+                    <div [hidden]='baseprice.errors?.required'> Provide Employee Id </div>
+                    <div [hidden]='!baseprice.errors?.pattern'>base price should be more than 1000 </div>
+            
+                </div>
+            </div>
+            <input [disabled]="!addCrop.valid" type="submit" value="Add Employee" class="btn btn-primary">
+            
+
+    
+   
