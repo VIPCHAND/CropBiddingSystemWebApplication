@@ -27,5 +27,10 @@ export class CropListComponent implements OnInit {
     
   }
 
+    update(editCrop: Crops) {
+    this.service.update(editCrop);
+    this.router.navigate(['/editcrop']); //updating the employee
+  }
+
 
 }

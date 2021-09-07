@@ -20,24 +20,23 @@ export class AddCropComponent implements OnInit {
 
     );
      console.log("initialized farmer data");
-    
-
   }
   handleSuccessfulResponse(response:any){
     this.farmer = response;
     console.log(response);
   }
 
-   onSubmit(addcrop:Crops){
-    
-    console.log(addcrop);
+  
+
+   onSubmit(addcrop:Crops){ 
     this.crop = addcrop;
     this.crop.farmer = this.farmer;
       console.log(this.crop);
-     this.service.insertCrop(addcrop).subscribe(data => {
+     this.service.insertCrop(this.crop).subscribe(data => {
       alert(data);
       this.router.navigate(['/croplist']);
     });
+
   }
   
 

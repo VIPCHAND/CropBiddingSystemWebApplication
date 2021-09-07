@@ -13,6 +13,13 @@ export class CropService {
   public loggedIn(){
     return true;
   }
+  public update(updatecrop:Crops){
+
+    this.updateCrop = updatecrop;
+  }
+  public updateMethod() {
+    return this.updateCrop;
+  }
 
   public getAllCrops(){
     console.log("ins service get all crops");
@@ -35,13 +42,13 @@ export class CropService {
   public insertCrop(addcrop:Crops){
     console.log("ins service add crops");
     const headers = new HttpHeaders().set('Content_Type','text/plain ; charset = utf-8');
-    return this.httpService.post("http://localhost:8586/cropBiddingApplication/crop/cropCreation",addcrop);
+    return this.httpService.post("http://localhost:8586/cropBiddingApplication/crop/cropCreation",addcrop,{ responseType: 'text',headers});
   }
 
   public editCrop(edtcrop:Crops){
     console.log("ins service update crops");
     const headers = new HttpHeaders().set('Content_Type','text/plain ; charset = utf-8');
-    return this.httpService.put("http://localhost:8586/cropBiddingApplication/crop/editCrop",edtcrop);
+    return this.httpService.put("http://localhost:8586/cropBiddingApplication/crop/editCrop",edtcrop,{ responseType: 'text',headers});
   }
 
   public getCropByFarmerId(farmerid:number){
@@ -62,7 +69,7 @@ export class CropService {
 }
 
 export class Crops{
-  
+  cropId:number;
   cropName:string;
   cropType: string;
   fertilizer: string;
