@@ -43,7 +43,7 @@
                 <div class="flex-item-right"><input required type="number" minlength="1" name="quantity" #quantity='ngModel' ngModel ></div>
                 <div *ngIf='quantity.errors && quantity.touched' class="alert alert-danger">
                     <div [hidden]='quantity.errors?.required'> please enter quantity </div>
-                    <div [hidden]='!quantity.errors?.pattern'>quantity should be minimum of 1 length</div>
+                    
             
                 </div>
             </div>
@@ -51,12 +51,14 @@
                 <div class="flex-item-left"><label>Base Price</label></div>
                 <div class="flex-item-right"><input required type="number" minlength="4" name="basePrice" #baseprice='ngModel' ngModel ></div>
                 <div *ngIf='baseprice.errors && baseprice.touched' class="alert alert-danger">
-                    <div [hidden]='baseprice.errors?.required'> Provide Employee Id </div>
-                    <div [hidden]='!baseprice.errors?.pattern'>base price should be more than 1000 </div>
+                    <div [hidden]='baseprice.errors?.required'> Provide base price </div>
+                   
             
                 </div>
             </div>
-            <input [disabled]="!addCrop.valid" type="submit" value="Add Crop" class="btn btn-primary">
+            <br>
+            <div><input [disabled]="!addCrop.valid" type="submit" value="Add Crop" class="btn btn-primary"></div>
+            
             
 
     

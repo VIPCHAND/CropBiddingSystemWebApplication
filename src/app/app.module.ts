@@ -16,6 +16,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AddCropComponent } from './add-crop/add-crop.component';
 import { EditCropComponent } from './edit-crop/edit-crop.component';
+import { FarmerregistrationComponent } from './farmerregistration/farmerregistration.component';
+import { BidderregistrationComponent } from './bidderregistration/bidderregistration.component';
+import { BidlistComponent } from './bidlist/bidlist.component';
+import { AddbidComponent } from './addbid/addbid.component';
+import { ViewbidsComponent } from './viewbids/viewbids.component';
+import { ViewmycropsComponent } from './viewmycrops/viewmycrops.component';
+import { MarketComponent } from './market/market.component';
 
 
 @NgModule({
@@ -29,7 +36,14 @@ import { EditCropComponent } from './edit-crop/edit-crop.component';
     AdminHomePageComponent,
     CropListComponent,
     AddCropComponent,
-    EditCropComponent
+    EditCropComponent,
+    FarmerregistrationComponent,
+    BidderregistrationComponent,
+    BidlistComponent,
+    AddbidComponent,
+    ViewbidsComponent,
+    ViewmycropsComponent,
+    MarketComponent
   ],
   imports: [
     BrowserModule,

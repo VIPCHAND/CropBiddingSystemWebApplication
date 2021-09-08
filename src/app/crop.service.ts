@@ -10,9 +10,6 @@ export class CropService {
   updateCrop : Crops;
   constructor(private httpService: HttpClient) { }
 
-  public loggedIn(){
-    return true;
-  }
   public update(updatecrop:Crops){
 
     this.updateCrop = updatecrop;

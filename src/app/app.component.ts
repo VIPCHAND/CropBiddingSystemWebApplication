@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { BidderService } from './bidder.service';
+import { FarmerService } from './farmer.service';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CropBiddingSystem';
+  constructor(public loginService:UserService,public farmerservice:FarmerService,public bidderservice:BidderService){}
 }
