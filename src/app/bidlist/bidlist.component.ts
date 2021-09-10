@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Bid, BidService, Crops } from '../bid.service';
+import { Bid, BidService} from '../bid.service';
 
 @Component({
   selector: 'app-bidlist',
@@ -10,7 +10,7 @@ import { Bid, BidService, Crops } from '../bid.service';
 export class BidlistComponent implements OnInit {
 
 bids: Bid[] ;
-  constructor(private bidservice:BidService,private router: Router) { }
+  constructor(private bidservice:BidService,private router: Router) {}
 
   ngOnInit(): any {
     this.bidservice.getBidsByBidderId(123).subscribe(

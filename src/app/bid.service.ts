@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Bidder } from './bidder.service';
+import { Crops } from './crop.service';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +43,7 @@ export class BidService {
   public getBidsByCropId(cropId:number){
     console.log();
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.get("http://localhost:8586/cropBiddingApplication/bid/getBidsByBidder/" +cropId, {responseType: 'text',headers});
+    return this.httpService.get(" http://localhost:8586/cropBiddingApplication/bid/getBidsByCrop" +cropId, {responseType: 'text',headers});
 
   }
 
@@ -65,29 +67,6 @@ export class Bid{
   amount:number;
   isWinningBid:boolean;
   bidder: Bidder; // added property
+  crop:Crops;
   
-}
-export class Farmer{
-  farmerId:number;
-  village:string;
-  district:string;
- }
-
-export class Bidder{
-  bidderId:number;
-  city:string;
-  licenseNo:string;
-  pan:string;
-  crop: Crops; // added property
-
-}
-export class Crops{
-  cropId:number;
-  cropName:string;
-  cropType:string;
-  fertilizer:string;
-  quanity:number;
-  basePrice:number;
-
-
 }

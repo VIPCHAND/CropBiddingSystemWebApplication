@@ -4,13 +4,22 @@
 
 <div id="div2">
     <!-- user -->
-    <form #user="ngForm" (ngSubmit)="adduser(user.value)">
+    <form #userform1="ngForm" (ngSubmit)="adduser(userform1.value)">
         <h3>user</h3>
+        <div class="flex-container">
+            <div class="flex-item-left"><label>Bidder ID </label></div>
+            <div class="flex-item-right">
+                <input required type="text" name="bidderId" #bidderId="ngModel" id="bidderId" ngModel />
+            </div>
+            <div *ngIf="fullname.errors && fullname.touched" class="alert alert-danger">
+                <div [hidden]="!fullname.errors?.required">Provide name</div>
+            </div>
+        </div>
         <div class="flex-container">
             <div class="flex-container">
                 <div class="flex-item-left"><label>User Id: </label></div>
                 <div class="flex-item-right">
-                    <input required type="text" name="userid" #userid="ngModel" ngModel id="userid" />
+                    <input required type="text" name="userId" #userid="ngModel" ngModel id="userid" />
                 </div>
                 <div class="flex-container">
                     <div class="flex-container">

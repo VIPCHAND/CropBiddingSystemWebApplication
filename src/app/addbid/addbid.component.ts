@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Bid, Bidder, BidService, Crops } from '../bid.service';
+import { Bid,BidService} from '../bid.service';
+import { Bidder } from '../bidder.service';
+import { Crops } from '../crop.service';
 
 @Component({
   selector: 'app-addbid',
@@ -8,7 +10,6 @@ import { Bid, Bidder, BidService, Crops } from '../bid.service';
   styleUrls: ['./addbid.component.css']
 })
 export class AddbidComponent implements OnInit {
-
    bid:Bid;
   bidder:Bidder;
   crop:Crops;
@@ -43,7 +44,7 @@ export class AddbidComponent implements OnInit {
   onSubmit(addbid:Bid):any{
     this.bid = addbid;
     this.bid.bidder = this.bidder;
-    this.bid.bidder.crop = this.crop;
+    this.bid.crop = this.crop;
     console.log(this.bid);
     this.bidservice.addBid(this.bid).subscribe(data =>{
       alert(data);

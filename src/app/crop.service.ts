@@ -72,7 +72,7 @@ export class Crops{
   fertilizer: string;
   quantity: number;
   basePrice: number;
-  isApproved: number;
+  isApproved: boolean;
   farmer:Farmer;
 }
 

@@ -10,6 +10,7 @@ import { User } from './user.service';
 export class FarmerService {
 farmer:Farmer;
 role:boolean;
+farmerId:number;
 constructor(private httpService: HttpClient) { }
 
   public setRoleFarmer(role:boolean){
@@ -19,7 +20,12 @@ constructor(private httpService: HttpClient) { }
     
     return this.role;
   }
-public addFarmer(newFarmer: Farmer) {
+
+ public setfarmerId(farmerid:number){
+   this.farmerId=farmerid;
+
+ }
+ public addFarmer(newFarmer: Farmer) {
   console.log("Farmer added");
   console.log(newFarmer);
   const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');

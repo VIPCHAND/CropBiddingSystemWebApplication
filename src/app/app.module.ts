@@ -23,6 +23,7 @@ import { AddbidComponent } from './addbid/addbid.component';
 import { ViewbidsComponent } from './viewbids/viewbids.component';
 import { ViewmycropsComponent } from './viewmycrops/viewmycrops.component';
 import { MarketComponent } from './market/market.component';
+import { PlacebidComponent } from './placebid/placebid.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { MarketComponent } from './market/market.component';
     AddbidComponent,
     ViewbidsComponent,
     ViewmycropsComponent,
-    MarketComponent
+    MarketComponent,
+    PlacebidComponent
   ],
   imports: [
     BrowserModule,

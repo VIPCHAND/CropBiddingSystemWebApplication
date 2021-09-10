@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {BidService,Bid } from '../bid.service';
+import { CropService } from '../crop.service';
 
 @Component({
   selector: 'app-viewbids',
@@ -8,12 +9,14 @@ import {BidService,Bid } from '../bid.service';
   styleUrls: ['./viewbids.component.css']
 })
 export class ViewbidsComponent implements OnInit {
-
+ crop:any;
    bid:Bid[];
-  constructor(private service:BidService,private router: Router) { }
+  constructor(private bidservice:BidService,private router: Router,private cropservice:CropService) { 
+    this.crop=this.cropservice.updateMethod();
+  }
 
   ngOnInit(): any {
-    this.service.getBidsByCropId(123).subscribe(
+    this.bidservice.getBidsByCropId(this.crop.cropId).subscribe(
       response => this.handleSuccessfulResponse(response),
 
     );

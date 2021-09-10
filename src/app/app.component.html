@@ -90,13 +90,15 @@
             
                     <div class="navbar-nav ml-auto">
                         <a routerLink="login" *ngIf="!loginService.isUserLoggedIn()"  class="nav-item nav-link">LOGIN</a>
-                        <a routerLink="croplist" *ngif="farmerservice.loggedInAsFarmer()"  class="nav-item nav-link">VIEW ALL CROPS</a>
-                        <a routerLink="addcrop" *ngif="farmerservice.loggedInAsFarmer()"  class="nav-item nav-link">ADD Crop</a>
+                        <a routerLink="croplist" *ngIf="farmerservice.loggedInAsFarmer()" class="nav-item nav-link">VIEW ALL CROPS</a>
+                        <a routerLink="addcrop" *ngIf="farmerservice.loggedInAsFarmer()"  class="nav-item nav-link">ADD Crop</a>
                         <a routerLink="market" class="nav-item nav-link">Market</a>
-                        <a routerLink="addbid" *ngif="bidderservice.loggedInAsBidder()" class="nav-item nav-link">ADD Bid</a>
+                        <a routerLink="addbid" *ngIf="bidderservice.loggedInAsBidder()" class="nav-item nav-link">ADD Bid</a>
+                        <a routerLink="placebids" class="nav-item nav-link">Place Bid</a>
                         <a routerLink="contact"  class="nav-item nav-link">CONTACT US</a>
                         <a routerLink="aboutus"  class="nav-item nav-link">ABOUT US</a>
-                        <a routerLink="logout"  class="nav-item nav-link">LOGOUT</a>
+
+                        <a routerLink="logout" *ngIf="loginService.isUserLoggedIn()" class="nav-item nav-link">LOGOUT</a>
                         <a routerLink="registration" *ngIf="!loginService.isUserLoggedIn()" class="nav-item-nav-link">registration</a>
                     </div>
                 </div>

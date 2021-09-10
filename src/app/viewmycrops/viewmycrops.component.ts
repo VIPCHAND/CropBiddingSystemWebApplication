@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CropService,Crops,Farmer } from '../crop.service';
+import { FarmerService } from '../farmer.service';
 
 @Component({
   selector: 'app-viewmycrops',
@@ -9,12 +10,15 @@ import { CropService,Crops,Farmer } from '../crop.service';
 })
 export class ViewmycropsComponent implements OnInit {
 
+   farmer:any;
   crops:Crops[];
 
-  constructor(private service:CropService,private router: Router) { }
+  constructor(private cropservice:CropService,private router: Router,private farmerservice:FarmerService) { 
+    this.farmer=this.farmerservice.updateMethod();
+  }
 
   ngOnInit(): any {
-    this.service.getCropByFarmerId(123).subscribe(
+    this.cropservice.getCropByFarmerId(this.farmer.farmerId).subscribe(
       response => this.handleSuccessfulResponse(response),
 
     );
@@ -26,5 +30,11 @@ export class ViewmycropsComponent implements OnInit {
     this.crops = response;
     console.log(response);
 
+    
+
+}
+update(editCrop: Crops) {
+  this.cropservice.update(editCrop);
+  this.router.navigate(['/editcrop']); //updating the employee
 }
 }

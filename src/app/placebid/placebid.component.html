@@ -2,33 +2,33 @@
     <form #cropForm="ngForm">
         <div class="form-group">
             <div class="flex-item-left"><label>Crop Id</label></div>
-            <div class="flex-item-right"><input required type="text" name="cropId" #cropid='ngModel'
+            <div class="flex-item-right"><input required type="text" name="cropId"
                     [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
         </div>
         <div class="form-group">
             <div class="flex-item-left"><label>Crop Type</label></div>
-            <div class="flex-item-right"><input required type="text" name="cropType" #cropType='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
+            <div class="flex-item-right"><input required type="text" name="cropType" 
+                    [(ngModel)]="crop.cropType" readonly="readonly" class="form-control"></div>
         </div>
         <div class="form-group">
             <div class="flex-item-left"><label>Crop Name</label></div>
-            <div class="flex-item-right"><input required type="text" name="cropName" #cropName='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
+            <div class="flex-item-right"><input required type="text" name="cropName" 
+                    [(ngModel)]="crop.cropName" readonly="readonly" class="form-control"></div>
         </div>
         <div class="form-group">
             <div class="flex-item-left"><label>Fertilizer</label></div>
-            <div class="flex-item-right"><input required type="text" name="fertilizer" #fertilizer='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
+            <div class="flex-item-right"><input required type="text" name="fertilizer"
+                    [(ngModel)]="crop.fertilizer" readonly="readonly" class="form-control"></div>
         </div>
         <div class="form-group">
             <div class="flex-item-left"><label>Quantity</label></div>
-            <div class="flex-item-right"><input required type="text" name="quantity" #quanity='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
+            <div class="flex-item-right"><input required type="text" name="quantity" 
+                    [(ngModel)]="crop.quantity" readonly="readonly" class="form-control"></div>
         </div>
         <div class="form-group">
             <div class="flex-item-left"><label>Base Price</label></div>
-            <div class="flex-item-right"><input required type="text" name="basePrice" #basePrice='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
+            <div class="flex-item-right"><input required type="text" name="basePrice" 
+                    [(ngModel)]="crop.basePrice" readonly="readonly" class="form-control"></div>
         </div>
     </form>
 

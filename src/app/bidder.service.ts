@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -54,14 +55,4 @@ export class Bidder {
   pan: String;
   isVerified: boolean;
   user: User
-}
-export class User {
-  userId: number;
-  password: String;
-  role: String;
-  fullName: String;
-  mobile: String;
-  address: String;
-  aadhar: String;
-
 }

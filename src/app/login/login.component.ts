@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 invalidlogin=false;
   user:User=new User();
   userrole:string;
-  users:User;
+  users:User=new User();
 ngOnInit(): void {
   }
   constructor(private loginservice:UserService,private router:Router,public farmerservice:FarmerService,public bidderservice:BidderService) {
@@ -27,16 +27,18 @@ ngOnInit(): void {
   this.user.userId=loginForm.userId;
   this.user.password=loginForm.password;
   console.log(this.user);
-    (this.loginservice.login(this.user).subscribe(
-        
+    (this.loginservice.login(this.user).subscribe(     
         data => {
-          alert(data);
+          this.loginservice.setUserData(data);
           this.loginservice.setloggin(true);
-          this.handleSuccessfulResponse(data);
+          this.loginservice.setUserId(this.user.userId);
           
+         
+
           
-          this.router.navigate(['/home'])
-          
+           alert(data);
+           
+    this.router.navigate(['/home']);
         }
         ,
         error => {
@@ -48,18 +50,6 @@ ngOnInit(): void {
       )
       );
   }
-  
-  handleSuccessfulResponse(response:any){
-    this.users = response;
-    if(this.user.role="farmer"){
-      this.farmerservice.setRoleFarmer(true);
-      this.bidderservice.setRoleBidder(false);
 
-    }else{
-         this.farmerservice.setRoleFarmer(false);
-      this.bidderservice.setRoleBidder(true);
-
-    }
-    
-  }
+ 
 }

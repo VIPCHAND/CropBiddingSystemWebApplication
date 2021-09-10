@@ -1,78 +1,116 @@
-<!-- farmer -->
+<!-- Farmer -->
 
-<h3>farmer</h3>
+<h3>Farmer</h3>
 
 <div id="div2">
     <!-- user -->
-    <form #user="ngForm" (ngSubmit)="adduser(user.value, user.value)">
+    <form #userform1="ngForm" (ngSubmit)="adduser(userform1.value)">
         <h3>user</h3>
         <div class="flex-container">
-            <div class="flex-container">
-                <div class="flex-item-left"><label>Full Name: </label></div>
-                <div class="flex-item-right">
-                    <input required type="text" name="fullname" #fullname="ngModel" ngModel />
-                </div>
-                <div *ngIf="fullname.errors && fullname.touched" class="alert alert-danger">
-                    <div [hidden]="!fullname.errors?.required">Provide name</div>
-                </div>
+            <div class="flex-item-left"><label>Farmer ID </label></div>
+            <div class="flex-item-right">
+                <input required type="text" name="farmerId" #farmerId="ngModel" id="farmerId" ngModel />
+            </div>
+            <div *ngIf="farmerId.errors && farmerId.touched" class="alert alert-danger">
+                <div [hidden]="!farmerId.errors?.required">Provide Id</div>
             </div>
         </div>
-        <div class="flex-container" id="farmerdiv">
+        <div class="flex-container">
             <div class="flex-container">
-                <div class="flex-item-left"><label>Mobile: </label></div>
+                <div class="flex-item-left"><label>User Id: </label></div>
                 <div class="flex-item-right">
-                    <input required type="text" name="mobile" #mobile="ngModel" pattern="[0-9]{10}" ngModel
-                        class="form-control" />
+                    <input required type="text" name="userId" #userid="ngModel" ngModel id="userId" />
                 </div>
-                <div *ngIf="mobile.errors && mobile.touched" class="alert alert-danger">
-                    <div [hidden]="!mobile.errors?.required">Provide Mobile</div>
-                </div>
-            </div>
-        </div>
-        <div class="flex-container" id="farmerdiv">
-            <div class="flex-container">
-                <div class="flex-item-left"><label>Address: </label></div>
-                <div class="flex-item-right">
-                    <input required type="text" name="address" #address="ngModel" ngModel class="form-control" />
-                </div>
-                <div *ngIf="village.errors && village.touched" class="alert alert-danger">
-                    <div div [hidden]="!village.errors?.required">Provide Address</div>
-                </div>
-            </div>
-        </div>
-        <div class="flex-container" id="farmerdiv">
-            <div class="flex-container">
-                <div class="flex-item-left"><label>Aadhar: </label></div>
-                <div class="flex-item-right">
-                    <input required type="text" name="Aadhar" #aadhar="ngModel" ngModel />
-                </div>
-                <div *ngIf="aadhar.errors && aadhar.touched" class="alert alert-danger">
-                    <div hidden]="!aadhar.errors?.required">Provide Aadhar</div>
-                </div>
-            </div>
-        </div>
-        <div class="flex-container" id="farmerdiv">
-            <div class="flex-container">
-                <div class="flex-item-left"><label>Village</label></div>
-                <div class="flex-item-right">
-                    <input required type="text" name="Village" #village="ngModel" ngModel />
-                </div>
-                <div *ngIf="village.errors && village.touched" class="alert alert-danger">
-                    <div [hidden]="!village.errors?.required">Provide Village</div>
-                </div>
-            </div>
+                <div class="flex-container">
+                    <div class="flex-container">
+                        <div class="flex-item-left"><label>Password: </label></div>
+                        <div class="flex-item-right">
+                            <input required type="text" name="Password" #password="ngModel" ngModel id="password" />
+                        </div>
+                        <div class="flex-container">
+                            <div class="flex-container">
+                                <div class="flex-item-left"><label>Full Name: </label></div>
+                                <div class="flex-item-right">
+                                    <input required type="text" name="fullname" #fullname="ngModel" id="fullname"
+                                        ngModel />
+                                </div>
+                                <div *ngIf="fullname.errors && fullname.touched" class="alert alert-danger">
+                                    <div [hidden]="!fullname.errors?.required">Provide name</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-container" id="farmerdiv">
+                            <div class="flex-container">
+                                <div class="flex-item-left"><label>Mobile: </label></div>
+                                <div class="flex-item-right">
+                                    <input required type="text" name="mobile" #mobile="ngModel" pattern="[0-9]{10}"
+                                        ngModel id="mobile" />
+                                </div>
+                                <div *ngIf="mobile.errors && mobile.touched" class="alert alert-danger">
+                                    <div [hidden]="!mobile.errors?.required">Provide Mobile</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-container" id="farmerdiv">
+                            <div class="flex-container">
+                                <div class="flex-item-left"><label>Address: </label></div>
+                                <div class="flex-item-right">
+                                    <input required type="text" name="address" #address="ngModel" ngModel
+                                        id="address" />
+                                </div>
+                                <div *ngIf="address.errors && address.touched" class="alert alert-danger">
+                                    <div div [hidden]="!address.errors?.required">
+                                        Provide Address
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-container" id="farmerdiv">
+                            <div class="flex-container">
+                                <div class="flex-item-left"><label>Aadhar: </label></div>
+                                <div class="flex-item-right">
+                                    <input required type="text" name="Aadhar" #aadhar="ngModel" ngModel id="aadhar" />
+                                </div>
+                                <div *ngIf="aadhar.errors && aadhar.touched" class="alert alert-danger">
+                                    <div hidden]="!aadhar.errors?.required">Provide Aadhar</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-container" id="farmerdiv">
+                            <div class="flex-container">
+                                <div class="flex-item-left"><label>Village</label></div>
+                                <div class="flex-item-right">
+                                    <input required type="text" name="village" #village="ngModel" ngModel
+                                        id="village" />
+                                </div>
+                                <div *ngIf="village.errors && village.touched" class="alert alert-danger">
+                                    <div [hidden]="!village.errors?.required">
+                                        Provide village
+                                    </div>
+                                </div>
+                            </div>
 
-            <div class="flex-container">
-                <div class="flex-item-left"><label>District</label></div>
-                <div class="flex-item-right">
-                    <input required type="text" name="District" #district="ngModel" ngModel />
+                            <div class="flex-container">
+                                <div class="flex-item-left"><label>District: </label></div>
+                                <div class="flex-item-right">
+                                    <input required type="text" name="district" #district="ngModel" ngModel
+                                        id="district" />
+                                </div>
+                                <div *ngIf="district.errors && district.touched" class="alert alert-danger">
+                                    <div [hidden]="!district.errors?.required">
+                                        Provide district
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">
+                            Sign up as Farmer
+                        </button>
+                        <!-- </form> -->
+                    </div>
                 </div>
-                <div *ngIf="district.errors && district.touched" class="alert alert-danger">
-                    <div [hidden]="!district.errors?.required">Provide District</div>
-                </div>
+                <!-- </form> -->
             </div>
         </div>
-        <button class="btn btn-primary" type="submit">Sign up as farmer</button>
     </form>
 </div>
-
