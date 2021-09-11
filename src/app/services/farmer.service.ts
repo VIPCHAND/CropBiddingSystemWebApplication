@@ -25,6 +25,9 @@ constructor(private httpService: HttpClient) { }
    this.farmerId=farmerid;
 
  }
+ public getfarmerId(farmerId:number){
+   return this.farmerId;
+ }
  public addFarmer(newFarmer: Farmer) {
   console.log("Farmer added");
   console.log(newFarmer);

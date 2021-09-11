@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import{HttpClient, HttpHeaders} from '@angular/common/http';
+import { Farmer } from './farmer.service';
+import { Bidder } from './bidder.service';
 
 
 
@@ -14,6 +16,11 @@ export class UserService {
   userID:String;
   user:User;
   userdata:User = new User();
+
+  logOut() {
+    sessionStorage.removeItem("username");
+    sessionStorage.clear();
+  }
 
   public setloggin(stat:boolean){
     this.status = stat;
@@ -32,16 +39,32 @@ export class UserService {
   }
   setUserData(user:any){
     this.userdata = user;
-    sessionStorage.setItem("role",this.userdata.role);
-    sessionStorage.setItem("userId",this.userdata.userId);
+    console.log(this.userdata+"user service user data");
+    if(this.userdata.bId === 0 && this.userdata.aId === 0 ){
+      sessionStorage.setItem("fId",this.userdata.fId.toString());
+      sessionStorage.setItem("role",this.userdata.role);
+    }
+    if(this.userdata.fId === 0 && this.userdata.aId === 0){
+      sessionStorage.setItem("bId",this.userdata.bId.toString());
+      sessionStorage.setItem("role",this.userdata.role);
+    }
+     if(this.userdata.fId === 0 && this.userdata.bId === 0 ){
+      sessionStorage.setItem("aId",this.userdata.aId.toString());
+      sessionStorage.setItem("role",this.userdata.role);
+    }
+    
+   
 
+  }
+  fetchUser(){
+    return this.userdata;
   }
 
   public getUserDetails(userId:String){
 
     console.log("get user"); 
   const headers = new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-  return this.httpService.get<User>("http://localhost:8586/cropBiddingApplication/getUser/" + userId,{ responseType: 'json',headers:headers});
+  return this.httpService.get<User>("http://localhost:8586/cropBiddingApplication/getUser/" + userId);
   }
 
   constructor(private httpService:HttpClient ) { }
@@ -64,6 +87,7 @@ export class UserService {
   aadhar: string;
   bId:number;
   fId:number;
+  aId:number;
   // farmer:Farmer;
   // bidder:Bidder;
 

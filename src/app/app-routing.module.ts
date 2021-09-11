@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCropComponent } from './add-crop/add-crop.component';
 import { AddbidComponent } from './addbid/addbid.component';
@@ -12,6 +12,7 @@ import { FarmerHomePageComponent } from './farmer-home-page/farmer-home-page.com
 import { FarmerregistrationComponent } from './farmerregistration/farmerregistration.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { MarketComponent } from './market/market.component';
 import { PlacebidComponent } from './placebid/placebid.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -36,7 +37,9 @@ const routes: Routes = [
 { path : 'viewmycrops',component:ViewmycropsComponent},
 { path: 'fhome', component:FarmerHomePageComponent },
 { path: 'bhome', component:BidderHomePageComponent },
-{ path: 'placebids',component:PlacebidComponent}
+{path: 'ahome', component:AdminHomePageComponent},
+{ path: 'placebid',component:PlacebidComponent},
+{path : 'logout' ,component:LogoutComponent}
 
 ];
 

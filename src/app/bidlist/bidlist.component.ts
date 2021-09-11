@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Bid, BidService} from '../bid.service';
+import { Bid, BidService } from '../services/bid.service';
+import { Bidder, BidderService } from '../services/bidder.service';
+
 
 @Component({
   selector: 'app-bidlist',
@@ -9,12 +11,17 @@ import { Bid, BidService} from '../bid.service';
 })
 export class BidlistComponent implements OnInit {
 
+
 bids: Bid[] ;
-  constructor(private bidservice:BidService,private router: Router) {}
+bidderId:number;
+  constructor(private bidservice:BidService,private router: Router,private bidderService:BidderService) { }
 
   ngOnInit(): any {
-    this.bidservice.getBidsByBidderId(123).subscribe(
-      response=>this.handleSuccessfulResponse(response)
+        this.bidderId = this.bidderService.getBidderId(); 
+     this.bidderService.setbidderId(this.bidderId);
+    
+    this.bidservice.getBidsByBidderId(this.bidderId).subscribe(
+        response =>this.handleSuccessfulResponse(response)
         );
   }
 
@@ -23,7 +30,7 @@ bids: Bid[] ;
     console.log(response);
   }
   update(editBids: Bid) {
-    this.bidservice.update(editBids);
-    this.router.navigate(['/updatebid']); //updating bids
+    this.bidservice.onUpdate(editBids);
+    this.router.navigate(['./updatebid']); //updating bids
   }
 }

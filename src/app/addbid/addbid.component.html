@@ -1,68 +1,37 @@
 <div class="container">
-    <form #cropForm="ngForm">
-        <div class="form-group">
-            <div class="flex-item-left"><label>Crop Id</label></div>
-            <div class="flex-item-right"><input required type="text" name="cropId" #cropid='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
-        </div>
-        <div class="form-group">
-            <div class="flex-item-left"><label>Crop Type</label></div>
-            <div class="flex-item-right"><input required type="text" name="cropType" #cropType='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
-        </div>
-        <div class="form-group">
-            <div class="flex-item-left"><label>Crop Name</label></div>
-            <div class="flex-item-right"><input required type="text" name="cropName" #cropName='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
-        </div>
-        <div class="form-group">
-            <div class="flex-item-left"><label>Fertilizer</label></div>
-            <div class="flex-item-right"><input required type="text" name="fertilizer" #fertilizer='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
-        </div>
-        <div class="form-group">
-            <div class="flex-item-left"><label>Quantity</label></div>
-            <div class="flex-item-right"><input required type="text" name="quantity" #quanity='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
-        </div>
-        <div class="form-group">
-            <div class="flex-item-left"><label>Base Price</label></div>
-            <div class="flex-item-right"><input required type="text" name="basePrice" #basePrice='ngModel'
-                    [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
-        </div>
-    </form>
+    <table class="table table-striped" *ngIf="crops && crops.length > 0 else elseBlock">
+        <thead>
+            <tr>
+                <th>Crop Id</th>
+                <th>Crop Name</th>
+                <th>Crop Type</th>
+                <th>Fertilizer</th>
+                <th>Quantity</th>
+                <th>Base price</th>
+                <th>Add-Bid</th>
 
-</div>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let crop of crops" style="text-align: center;">
+                <td>{{crop.cropId}}</td>
+                <td>{{crop.cropName}}</td>
+                <td>{{crop.cropType}}</td>
+                <td>{{crop.fertilizer}}</td>
+                <td>{{crop.quantity}}</td>
+                <td>{{crop.basePrice}}</td>
 
 
-<div class="container">
-    <form #addBid="ngForm" (ngSubmit)='onSubmit(addBid.value)'>
-        <div clas="form-group">
-            <label for="">Bid-Id</label>
-            <input required minlength='1' type="number" min="1" #bidIdRef='ngModel' name='id' ngModel
-                class="form-control">
-            <div *ngIf='bidIdRef.errors && bidIdRef.touched' class="alert alert-danger">
-                <div [hidden]='!bidIdRef.errors?.required'>Provide Bid-Id</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="">Bid-Date</label>
-            <input required type="date" #bidDate='ngModel' name="name" ngModel class="form-control">
-            <div *ngIf='bidDate.errors && bidDate.touched' class="alert alert-danger">
-                <div [hidden]='!bidDate.errors?.required'>Provide Bid-Date(mm-dd-yyyy)</div>
+                <td>
+                    <i class="fa fa-plus-square" (click)=addbid(crop)></i>
+                </td>
 
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="">Amount</label>
-            <input type="number" min="100" #bidAmount='ngModel' name="name" ngModel class="form-control">
-            <div *ngIf='bidAmount.errors && bidAmount.touched' class="alert alert-danger">
-                <div [hidden]='!bidAmount.errors?.required'>Bid-Amount should be more than Base-price.</div>
+            </tr>
+        </tbody>
 
-            </div>
-        </div>
-        <input [disabled]="!addBid.valid" type="submit" value="Add-Bid" class="btn btn-primary">
-
-    </form>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no Crops to display,please add Crops! </h4>
+    </ng-template>
 
 </div>

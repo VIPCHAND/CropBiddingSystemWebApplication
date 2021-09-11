@@ -1,1 +1,27 @@
-<p>bidlist works!</p>
+<div class="container">
+    <table class="table table-striped" *ngIf="bids && bids.length > 0 else elseBlock">
+        <thead>
+            <tr>
+                <th>Bid-Id</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Update-Bid</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of bids" style="text-align: center;">
+                <td>{{b.bidId}}</td>
+                <td>{{b.bidDate}}</td>
+                <td>{{b.amount}}</td>
+                <td>
+                    <i class="fas fa-edit" (click)=update(b)></i>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no Bids to display! </h4>
+    </ng-template>
+</div>
+

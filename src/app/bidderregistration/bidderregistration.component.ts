@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {Bidder, BidderService } from '../bidder.service';
-import { Farmer } from '../crop.service';
-import { User } from '../user.service';
+import { Bidder, BidderService } from '../services/bidder.service';
+import { Farmer } from '../services/farmer.service';
+
+import { User } from '../services/user.service';
 
 @Component({
   selector: 'app-bidderregistration',

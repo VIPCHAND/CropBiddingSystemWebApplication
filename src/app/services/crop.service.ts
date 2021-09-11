@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Farmer } from './farmer.service';
 
 
 @Injectable({
@@ -76,9 +77,4 @@ export class Crops{
   farmer:Farmer;
 }
 
-export class Farmer{
-  farmerId:number;
-  village:string;
-  district:string;
-  isVerified:number;
-}
+

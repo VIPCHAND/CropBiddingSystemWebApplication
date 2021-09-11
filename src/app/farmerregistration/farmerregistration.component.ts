@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {Farmer,FarmerService } from '../farmer.service';
-import { User } from '../user.service';
+import { Farmer, FarmerService } from '../services/farmer.service';
+
+import { User } from '../services/user.service';
 
 @Component({
   selector: 'app-farmerregistration',

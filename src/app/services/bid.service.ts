@@ -7,9 +7,10 @@ import { Crops } from './crop.service';
   providedIn: 'root'
 })
 export class BidService {
-
-    bid:Bid;
+  bid:Bid;
   updatebid:Bid;
+  bidder:Bidder;
+  crop:Crops;
   constructor(private httpService: HttpClient) { }
 
   public addBid(addbid:Bid){
@@ -19,19 +20,24 @@ export class BidService {
     return this.httpService.post("http://localhost:8586/cropBiddingApplication/bid/addBid", addbid,  {responseType: 'text',headers});
     
   }
-
-  public update(updatebid:Bid){
-    this.updatebid = this.updatebid;
+  public updateBidder(bidder:any){
+    this.bidder=bidder;
   }
-  public udpateMethod(){
-    return this.updatebid;
+
+  public updateBidderMethod(){
+    return this.bidder;
+  }
+  public updateCrop(crop:any){
+    this.crop =crop;
+  }
+  public udpateCropMethod(){
+    return this.crop;
   }
 
   public onUpdate(UpdateBid: Bid) {
-    console.log("Bid updated");
-    
+    console.log("Bid updated");    
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.put("http://localhost:8586/cropBiddingApplication/bid/updateBid", UpdateBid,  {responseType: 'text',headers});
+    return this.httpService.put("http://localhost:8586/cropBiddingApplication/bid/updateBid/", UpdateBid,  {responseType: 'text',headers});
   }
 
   public getBidsByBidderId(bidderId:number){
@@ -41,9 +47,9 @@ export class BidService {
   }
 
   public getBidsByCropId(cropId:number){
-    console.log();
+    console.log("Crop  By cropID");
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.get(" http://localhost:8586/cropBiddingApplication/bid/getBidsByCrop" +cropId, {responseType: 'text',headers});
+    return this.httpService.get("http://localhost:8586/cropBiddingApplication/bid/getBidsByCrop/" +cropId, {responseType: 'text',headers});
 
   }
 
@@ -56,14 +62,14 @@ export class BidService {
   public getCrop(cropId:number){
     console.log("Get Crops.");
     const headers = new HttpHeaders().set('Content_Type','text/plain ; charset = utf-8');
-    return this.httpService.get<Crops>("http://localhost:8586/cropBiddingApplication/bidder/getBidder/"+ cropId)
+    return this.httpService.get<Crops>("http://localhost:8586/cropBiddingApplication/crop/"+ cropId)
 
   }
 }
 
 export class Bid{
   bidId:number;
-  date:any;
+  bidDate:any;
   amount:number;
   isWinningBid:boolean;
   bidder: Bidder; // added property

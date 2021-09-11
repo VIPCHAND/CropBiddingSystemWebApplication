@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User, UserService } from '../user.service';
+import { User, UserService } from '../services/user.service';
 
 import { Router } from '@angular/router';
-import { FarmerService } from '../farmer.service';
-import { BidderService } from '../bidder.service';
+import { FarmerService } from '../services/farmer.service';
+import { BidderService } from '../services/bidder.service';
+
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ invalidlogin=false;
   user:User=new User();
   userrole:string;
   users:User=new User();
+  userdata:User = new User();
 ngOnInit(): void {
   }
   constructor(private loginservice:UserService,private router:Router,public farmerservice:FarmerService,public bidderservice:BidderService) {
@@ -28,15 +30,12 @@ ngOnInit(): void {
   this.user.password=loginForm.password;
   console.log(this.user);
     (this.loginservice.login(this.user).subscribe(     
-        data => {
-          this.loginservice.setUserData(data);
+        response => {
+          this.loginservice.setUserData(response);
           this.loginservice.setloggin(true);
           this.loginservice.setUserId(this.user.userId);
-          
-         
-
-          
-           alert(data);
+          this.handresp(response);
+           alert("Login successfull");
            
     this.router.navigate(['/home']);
         }
@@ -51,5 +50,11 @@ ngOnInit(): void {
       );
   }
 
+  handresp(user:any){
+     this.userdata = user;
+     console.log(this.user);
+
+   }
+ 
  
 }

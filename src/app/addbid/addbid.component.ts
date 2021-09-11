@@ -1,8 +1,10 @@
+import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Bid,BidService} from '../bid.service';
-import { Bidder } from '../bidder.service';
-import { Crops } from '../crop.service';
+import { Bid, BidService } from '../services/bid.service';
+import { Bidder, BidderService } from '../services/bidder.service';
+import { Crops, CropService } from '../services/crop.service';
+
 
 @Component({
   selector: 'app-addbid',
@@ -10,47 +12,53 @@ import { Crops } from '../crop.service';
   styleUrls: ['./addbid.component.css']
 })
 export class AddbidComponent implements OnInit {
-   bid:Bid;
-  bidder:Bidder;
-  crop:Crops;
+   bid:Bid; 
+   bidder:Bidder; 
+  crops : Crops[];
+  bidderId:number;
 
-  constructor(private bidservice:BidService,private router:Router) { }
+  constructor(private bidservice:BidService,private cropservice:CropService, private router:Router,private bidderService:BidderService) { }
 
   ngOnInit(): any {
-    this.bidservice.getBidderById(1).subscribe(
+    this.bidderId = this.bidderService.getBidderId(); 
+    this.bidderService.setbidderId(this.bidderId);
+    console.log(this.bidderId);
+    this.bidservice.getBidderById(this.bidderId).subscribe(
       response => this.handleSuccessfulResponse(response),
 
     );
      console.log("initialized bidder data");
 
-     this.bidservice.getCrop(1).subscribe(
-      response=> this.handleSuccessfulResponse2(response),
+     this.cropservice.fetchApprovedCrop().subscribe(response=> 
+      this.handleSuccessfulResponse2(response)
     );
     console.log("initilized Crop Data");
   }
 
   handleSuccessfulResponse(response:any){
     this.bidder = response;
-    console.log(response);
+    console.log(this.bidder+"add bid");
   }
 
   
 
   handleSuccessfulResponse2(response:any){
-    this.bidder = response;
-    console.log(response);
+    this.crops = response;
+    console.log(this.crops+"add bid");
   }
 
-  onSubmit(addbid:Bid):any{
-    this.bid = addbid;
-    this.bid.bidder = this.bidder;
-    this.bid.crop = this.crop;
-    console.log(this.bid);
-    this.bidservice.addBid(this.bid).subscribe(data =>{
-      alert(data);
-      this.router.navigate(['/bidlist']);
-    });
-
-  }
+  addbid(crops:any){
+    this.crops = crops; 
+    console.log("crop data add bid");   
+    console.log(this.crops);
+    this.bidservice.updateCrop(this.crops);
+    
+    this.bidservice.updateBidder(this.bidder);
+    
+    console.log("bidder data add bid"); 
+    console.log(this.bidder)
+      this.router.navigate(['./placebid']);
+      
+    }
 
 }

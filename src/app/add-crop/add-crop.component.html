@@ -5,6 +5,14 @@
         <form #addCrop="ngForm" (ngSubmit)='onSubmit(addCrop.value)'>
 
             <div class="flex-container">
+                <div class="flex-item-left"><label>Crop Id</label></div>
+                <div class="flex-item-right"><input required type="text" name="cropId" #cropId='ngModel' ngModel></div>
+                <div *ngIf='cropId.errors && cropId.touched' class="alert alert-danger">
+                    <div [hidden]='!cropId.errors?.required'> Provide Crop Id</div>
+            
+                </div>
+            </div>
+            <div class="flex-container">
                 <div class="flex-item-left"><label>Crop Name</label></div>
                 <div class="flex-item-right"><input required type="text" name="cropName" #cropname='ngModel' ngModel ></div>
                 <div *ngIf= 'cropname.errors && cropname.touched' class="alert alert-danger">

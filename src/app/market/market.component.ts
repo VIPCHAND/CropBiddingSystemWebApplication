@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CropService,Crops,Farmer } from '../crop.service';
+import { Crops, CropService } from '../services/crop.service';
+
 
 @Component({
   selector: 'app-market',
@@ -8,17 +9,20 @@ import { CropService,Crops,Farmer } from '../crop.service';
   styleUrls: ['./market.component.css']
 })
 export class MarketComponent implements OnInit {
-
- crops:Crops[];
-  constructor(private service:CropService,private router: Router) { }
+crops:Crops[];
+  constructor(private cropservice:CropService,private router: Router) { }
 
   ngOnInit(): any {
-    this.service.fetchApprovedCrop().subscribe(response => this.handleSuccessfulResponse(response));
+    this.cropservice.fetchApprovedCrop().subscribe(response => this.handleSuccessfulResponse(response));
   }
  
   handleSuccessfulResponse(response:any){
     this.crops = response;
     console.log(response);
+  }
+  update(viewbids: Crops) {
+    this.cropservice.update(viewbids);
+    this.router.navigate(['/viewbids']); //updating the employee
   }
 
 }

@@ -2,32 +2,32 @@
     <form #cropForm="ngForm">
         <div class="form-group">
             <div class="flex-item-left"><label>Crop Id</label></div>
-            <div class="flex-item-right"><input required type="text" name="cropId"
+            <div class="flex-item-right"><input required type="number" name="cropId" #cropid='ngModel'
                     [(ngModel)]="crop.cropId" readonly="readonly" class="form-control"></div>
         </div>
         <div class="form-group">
             <div class="flex-item-left"><label>Crop Type</label></div>
-            <div class="flex-item-right"><input required type="text" name="cropType" 
+            <div class="flex-item-right"><input required type="text" name="cropType" #cropType='ngModel'
                     [(ngModel)]="crop.cropType" readonly="readonly" class="form-control"></div>
         </div>
         <div class="form-group">
             <div class="flex-item-left"><label>Crop Name</label></div>
-            <div class="flex-item-right"><input required type="text" name="cropName" 
+            <div class="flex-item-right"><input required type="text" name="cropName" #cropName='ngModel'
                     [(ngModel)]="crop.cropName" readonly="readonly" class="form-control"></div>
         </div>
         <div class="form-group">
             <div class="flex-item-left"><label>Fertilizer</label></div>
-            <div class="flex-item-right"><input required type="text" name="fertilizer"
+            <div class="flex-item-right"><input required type="text" name="fertilizer" #fertilizer='ngModel'
                     [(ngModel)]="crop.fertilizer" readonly="readonly" class="form-control"></div>
         </div>
         <div class="form-group">
             <div class="flex-item-left"><label>Quantity</label></div>
-            <div class="flex-item-right"><input required type="text" name="quantity" 
+            <div class="flex-item-right"><input required type="text" name="quantity" #quanity='ngModel'
                     [(ngModel)]="crop.quantity" readonly="readonly" class="form-control"></div>
         </div>
         <div class="form-group">
             <div class="flex-item-left"><label>Base Price</label></div>
-            <div class="flex-item-right"><input required type="text" name="basePrice" 
+            <div class="flex-item-right"><input required type="text" name="basePrice" #basePrice='ngModel'
                     [(ngModel)]="crop.basePrice" readonly="readonly" class="form-control"></div>
         </div>
     </form>
@@ -39,7 +39,7 @@
     <form #addBid="ngForm" (ngSubmit)='onSubmit(addBid.value)'>
         <div clas="form-group">
             <label for="">Bid-Id</label>
-            <input required minlength='1' type="number" min="1" #bidIdRef='ngModel' name='id' ngModel
+            <input required minlength='1' type="number" min="1" #bidIdRef='ngModel' name='bidId' ngModel
                 class="form-control">
             <div *ngIf='bidIdRef.errors && bidIdRef.touched' class="alert alert-danger">
                 <div [hidden]='!bidIdRef.errors?.required'>Provide Bid-Id</div>
@@ -47,7 +47,7 @@
         </div>
         <div class="form-group">
             <label for="">Bid-Date</label>
-            <input required type="date" #bidDate='ngModel' name="name" ngModel class="form-control">
+            <input required type="date" #bidDate='ngModel' name="date" ngModel class="form-control">
             <div *ngIf='bidDate.errors && bidDate.touched' class="alert alert-danger">
                 <div [hidden]='!bidDate.errors?.required'>Provide Bid-Date(mm-dd-yyyy)</div>
 
@@ -55,13 +55,13 @@
         </div>
         <div class="form-group">
             <label for="">Amount</label>
-            <input type="number" min="100" #bidAmount='ngModel' name="name" ngModel class="form-control">
+            <input type="number" min="1000" #bidAmount='ngModel' name="amount" ngModel class="form-control">
             <div *ngIf='bidAmount.errors && bidAmount.touched' class="alert alert-danger">
                 <div [hidden]='!bidAmount.errors?.required'>Bid-Amount should be more than Base-price.</div>
 
             </div>
         </div>
-        <input [disabled]="!addBid.valid" type="submit" value="Add-Bid" class="btn btn-primary">
+        <input [disabled]="!addBid.valid" type="submit" value="Add Bid" class="btn btn-primary">
 
     </form>
 

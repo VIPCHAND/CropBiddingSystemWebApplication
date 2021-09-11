@@ -2,7 +2,7 @@
     <table class="table table-striped" *ngIf="crops && crops.length > 0 else elseBlock">
         <thead>
             <tr>
-
+                <th>Crop Id</th>
                 <th>Crop Name</th>
                 <th>Crop Type</th>
                 <th>Fertilizer</th>
@@ -16,7 +16,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let c of crops" style="text-align: center;">
-
+                <td>{{c.cropId}}</td>
                 <td>{{c.cropName}}</td>
                 <td>{{c.cropType}}</td>
                 <td>{{c.fertilizer}}</td>
@@ -38,4 +38,3 @@
     </ng-template>
 
 </div>
-

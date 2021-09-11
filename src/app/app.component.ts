@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { BidderService } from './bidder.service';
-import { FarmerService } from './farmer.service';
-import { UserService } from './user.service';
+import { BidderService } from './services/bidder.service';
+import { FarmerService } from './services/farmer.service';
+
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Crops, CropService } from '../crop.service';
+import { Crops, CropService } from '../services/crop.service';
+
 
 @Component({
   selector: 'app-edit-crop',

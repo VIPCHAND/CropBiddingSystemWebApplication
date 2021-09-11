@@ -7,6 +7,7 @@ import { User } from './user.service';
 })
 export class BidderService {
 role:boolean;
+bidderId:number;
 
    updatebidder: Bidder;
   constructor(private httpService: HttpClient) { }
@@ -17,6 +18,15 @@ role:boolean;
   public loggedInAsBidder() {
     
     return this.role;
+  }
+
+  setbidderId(bidderId:number){
+
+    this.bidderId =bidderId;
+  }
+  getBidderId(){
+
+    return this.bidderId;
   }
   public addBidder(addbidder: Bidder) {
     console.log("add bidder");
