@@ -94,12 +94,19 @@
                         <a routerLink="addcrop" *ngIf="farmerservice.loggedInAsFarmer()"  class="nav-item nav-link">ADD Crop</a>
                         <a routerLink="market" class="nav-item nav-link">Market</a>
                         <a routerLink="addbid" *ngIf="bidderservice.loggedInAsBidder()" class="nav-item nav-link">Place Bid</a>
-                      
-                        <a routerLink="contact"  class="nav-item nav-link">CONTACT US</a>
-                        <a routerLink="aboutus"  class="nav-item nav-link">ABOUT US</a>
+                        <a routerLink="bidlist" *ngIf="bidderservice.loggedInAsBidder()" class="nav-item nav-link">Bid List</a>
+                        <a routerLink="admincrop"  class="nav-item nav-link">Approve Crop</a>
+                        <a routerLink="adminbidder"  class="nav-item nav-link">Approve Bidder</a>
+                        <a routerLink="adminfarmer" class="nav-item nav-link">Approve Farmer</a>
+                        <a routerLink="approvebid"  class="nav-item nav-link">Approve Bid</a>
+                    <!-- *ngIf="adminService.loggedInAsAdmin()" -->
+                        <a routerLink="contact"  class="nav-item nav-link">Contact us</a>
+                        <a routerLink="registration" *ngIf="!loginService.isUserLoggedIn()" class="nav-item nav-link">Registration</a>
+                 
 
-                        <a routerLink="logout" *ngIf="loginService.isUserLoggedIn()" class="nav-item nav-link">LOGOUT</a>
-                        <a routerLink="registration" *ngIf="!loginService.isUserLoggedIn()" class="nav-item-nav-link">registration</a>
+                        <a routerLink="logout" *ngIf="loginService.isUserLoggedIn()" class="nav-item nav-link">Logout</a>
+                        
+                       
                     </div>
                 </div>
             </nav>

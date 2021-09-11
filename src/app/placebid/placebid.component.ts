@@ -32,11 +32,11 @@ export class PlacebidComponent implements OnInit {
    this.cropdata.basePrice = this.crop.basePrice;
    this.cropdata.fertilizer = this.crop.fertilizer;
    this.cropdata.quantity = this.crop.quantity;
-   this.farmer.farmerId = this.crop.farmer.farmerId;
-   this.farmer.district = this.crop.farmer.district;
-   this.farmer.village = this.crop.farmer.village;
-   this.farmer.isVerified = this.crop.farmer.isVerified;
-   this.cropdata.farmer = this.farmer;
+  //  this.farmer.farmerId = this.crop.farmer.farmerId;
+  //  this.farmer.district = this.crop.farmer.district;
+  //  this.farmer.village = this.crop.farmer.village;
+  //  this.farmer.isVerified = this.crop.farmer.isVerified;
+  //  this.cropdata.farmer = this.farmer;
    console.log("initilaized cropdata");
    console.log(this.cropdata);
    console.log("initilaized farmer data");
@@ -44,7 +44,7 @@ export class PlacebidComponent implements OnInit {
     
    
     
-    this.bidder = this.bidservice.updateBidderMethod();
+    this.bidder = this.bidderService.updateBidderMethod();
    
     this.bidderData.bidderId = this.bidder.bidderId;
     this.bidderData.city = this.bidder.city;

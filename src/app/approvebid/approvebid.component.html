@@ -1,0 +1,40 @@
+<div class="container">
+    <table class="table table-striped" *ngIf="crops && crops.length > 0 else elseBlock">
+        <thead>
+            <tr>
+                <th>Crop Id</th>
+                <th>Crop Name</th>
+                <th>Crop Type</th>
+                <th>Fertilizer</th>
+                <th>Quantity</th>
+                <th>Base price</th>
+
+
+                <th>show bid</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of crops" style="text-align: center;">
+                <td>{{c.cropId}}</td>
+                <td>{{c.cropName}}</td>
+                <td>{{c.cropType}}</td>
+                <td>{{c.fertilizer}}</td>
+                <td>{{c.quantity}}</td>
+                <td>{{c.basePrice}}</td>
+
+
+                <td>
+                    <a (click)=update(c)>
+                        Show Bid
+                    </a>
+                </td>
+
+            </tr>
+        </tbody>
+
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no Crops to display,please add the Crops! </h4>
+    </ng-template>
+
+</div>

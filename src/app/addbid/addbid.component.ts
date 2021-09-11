@@ -37,14 +37,15 @@ export class AddbidComponent implements OnInit {
 
   handleSuccessfulResponse(response:any){
     this.bidder = response;
-    console.log(this.bidder+"add bid");
+    console.log(this.bidder);
   }
 
   
 
   handleSuccessfulResponse2(response:any){
     this.crops = response;
-    console.log(this.crops+"add bid");
+    console.log("add bid");
+    console.log(this.crops);
   }
 
   addbid(crops:any){
@@ -53,7 +54,7 @@ export class AddbidComponent implements OnInit {
     console.log(this.crops);
     this.bidservice.updateCrop(this.crops);
     
-    this.bidservice.updateBidder(this.bidder);
+    this.bidderService.updateBidder(this.bidder);
     
     console.log("bidder data add bid"); 
     console.log(this.bidder)

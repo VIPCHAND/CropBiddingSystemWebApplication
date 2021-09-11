@@ -1,0 +1,34 @@
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                <th>Bid Id</th>
+                <th>Bids</th>
+                <th>Bid Date</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of bid" style="text-align: center;">
+
+                <td>{{c.bidId}}</td>
+                <td>{{c.amount}}</td>
+                <td>{{c.bidDate}}</td>
+
+
+                <td>
+                    <i class="fas fa-edit" (click)=setwinningbid(c)></i>
+                </td>
+
+            </tr>
+        </tbody>
+
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no bids to display,please add the bids! </h4>
+    </ng-template>
+
+</div>

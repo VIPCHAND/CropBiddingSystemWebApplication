@@ -12,7 +12,7 @@ bidderId:number;
    updatebidder: Bidder;
   constructor(private httpService: HttpClient) { }
 
-  public setRoleBidder(role:boolean){
+  public setStatusBidder(role:boolean){
     this.role = role;
   }
   public loggedInAsBidder() {
@@ -28,6 +28,15 @@ bidderId:number;
 
     return this.bidderId;
   }
+  public updateBidder(updateBidder:any){
+    this.updatebidder = updateBidder;
+  }
+
+  public updateBidderMethod(){
+
+    return this.updatebidder;
+  }
+
   public addBidder(addbidder: Bidder) {
     console.log("add bidder");
     console.log(addbidder);
@@ -57,6 +66,14 @@ bidderId:number;
     return this.httpService.get<Bidder>("http://locaelhost:8586/cropBiddingApplication/bidder/getBidderByStatus");
 
   }
+    public getAllBiddersByStatusfalse() {
+    console.log("get all bidders by status");
+   
+    // const headers = new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
+    return this.httpService.get<Bidder>("http://localhost:8586/cropBiddingApplication/bidder/getBidderByStatusfalse");
+
+  }
+
 }
 export class Bidder {
   bidderId: number;

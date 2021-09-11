@@ -1,0 +1,32 @@
+
+
+<div class="container">
+    <table class="table table-striped" *ngIf="bidder && bidder.length > 0 else elseBlock">
+        <thead>
+            <tr>
+                <th>Bidder Id</th>
+                <th>City</th>
+                <th>licenseNo</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of bidder" style="text-align: center;">
+                <td>{{b.bidderId}}</td>
+                <td>{{b.city}}</td>
+                <td>{{b.licenseNo}}</td>
+
+                <td>
+                    <i class="fas fa-edit" (click)=approveBidder(b)></i>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no bidders to display,please add the bidders! </h4>
+    </ng-template>
+
+</div>

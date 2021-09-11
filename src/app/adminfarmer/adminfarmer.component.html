@@ -1,0 +1,38 @@
+
+
+<div class="container">
+    <table class="table table-striped" *ngIf="farmer && farmer.length > 0 else elseBlock">
+        <thead>
+            <tr>
+                <th>farmerId</th>
+                <th>village</th>
+                <th>district</th>
+                <th>isVerified</th>
+
+                <!--   farmerId: number;
+  village: string;
+  district: string;
+  isVerified: boolean; -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of farmer" style="text-align: center;">
+                <td>{{f.farmerId}}</td>
+                <td>{{f.village}}</td>
+                <td>{{f.district}}</td>
+                <td>{{f.isVerified}}</td>
+
+
+
+                <td>
+                    <i class="fas fa-edit" (click)=approveFarmer(f)></i>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no farmer to display,please add the farmer! </h4>
+    </ng-template>
+
+</div>

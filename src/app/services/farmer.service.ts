@@ -9,23 +9,23 @@ import { User } from './user.service';
 })
 export class FarmerService {
 farmer:Farmer;
-role:boolean;
+status:boolean;
 farmerId:number;
 constructor(private httpService: HttpClient) { }
 
-  public setRoleFarmer(role:boolean){
-    this.role = role;
+  public setStatusFarmer(role:boolean){
+    this.status = role;
   }
   public loggedInAsFarmer() {
     
-    return this.role;
+    return this.status;
   }
 
  public setfarmerId(farmerid:number){
    this.farmerId=farmerid;
 
  }
- public getfarmerId(farmerId:number){
+ public getfarmerId(){
    return this.farmerId;
  }
  public addFarmer(newFarmer: Farmer) {
@@ -63,8 +63,16 @@ public getFarmerByStatus() {
   console.log("get farmer by status");
    const headers = new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
   return this.httpService.get<Farmer>("http://localhost:8586/cropBiddingApplication/farmer/getFarmerByStatus");
+}
+
+
+public getFarmerByStatusFalse() {
+  console.log("get farmer by status");
+   const headers = new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
+  return this.httpService.get<Farmer>("http://localhost:8586/cropBiddingApplication/farmer/getFarmerByStatusFalse");
 
 }
+
 }
 
 export class Farmer{

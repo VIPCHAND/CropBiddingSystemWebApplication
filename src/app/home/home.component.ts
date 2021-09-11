@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminHomePageComponent } from '../admin-home-page/admin-home-page.component';
+import { AdminService } from '../services/admin.service';
 import { BidderService } from '../services/bidder.service';
 import { FarmerService } from '../services/farmer.service';
 
@@ -16,7 +18,7 @@ export class HomeComponent implements OnInit {
   user:User = new User();
   userdata:User = new User();
   userId:string;
-  constructor(private userservice:UserService,private router:Router,public farmerservice:FarmerService,public bidderservice:BidderService) { 
+  constructor(private userservice:UserService,private router:Router,public farmerservice:FarmerService,public bidderservice:BidderService,private adminService:AdminService) { 
 
   }
 
@@ -26,15 +28,16 @@ export class HomeComponent implements OnInit {
   }
    handleSuccessfulResponse(response:any){
     this.user = response;
-    console.log(this.user+ "check on home");
+    console.log("check on home");
+    console.log(this.user);
    
     if(this.user.fId !== 0){
-      console.log(this.user.role + "home");
-      console.log(this.user.fId  + "home");
+      console.log(this.user.role);
+      console.log(this.user.fId);
       this.farmerservice.setfarmerId(this.user.fId);
-      this.farmerservice.setRoleFarmer(true);
-      this.bidderservice.setRoleBidder(false);
-      // this.adminservice.setRoleAdmin(false);
+      this.farmerservice.setStatusFarmer(true);
+      this.bidderservice.setStatusBidder(false);
+      this.adminService.setStatusAdmin(false);
       this.router.navigate(['/fhome']);
 
     }
@@ -42,25 +45,26 @@ export class HomeComponent implements OnInit {
        console.log(this.user.role + "home");
       console.log(this.user.bId  + "home");
       this.bidderservice.setbidderId(this.user.bId);
-      this.farmerservice.setRoleFarmer(false);
-      this.bidderservice.setRoleBidder(true);
-      //  this.adminservice.setRoleAdmin(false);
+      this.farmerservice.setStatusFarmer(false);
+      this.bidderservice.setStatusBidder(true);
+       this.adminService.setStatusAdmin(false);
       //send all the above data to bidder home and do the same for farmer
       this.router.navigate(['/bhome']);
     }
     if(this.user.aId !== 0){
        console.log(this.user.role + "home");
-      console.log(this.user.bId  + "home");
+      console.log(this.user.aId  + "home");
       this.bidderservice.setbidderId(this.user.bId);
-      this.farmerservice.setRoleFarmer(false);
-      this.bidderservice.setRoleBidder(false);
+      this.farmerservice.setStatusFarmer(false);
+      this.bidderservice.setStatusBidder(false);
+      this.adminService.setStatusAdmin(true);
       this.router.navigate(['/ahome']);
 
     }
-    if(this.user.bId === 0 && this.user.fId === 0 && this.user.aId === 0){
-       this.farmerservice.setRoleFarmer(false);
-      this.bidderservice.setRoleBidder(false);
-      //  this.adminservice.setRoleAdmin(false);
+    if(!this.userservice.isUserLoggedIn()){
+      this.farmerservice.setStatusFarmer(false);
+      this.bidderservice.setStatusBidder(false);
+      this.adminService.setStatusAdmin(false);
       
       this.router.navigate(['/home']);
     }

@@ -20,12 +20,12 @@ export class BidService {
     return this.httpService.post("http://localhost:8586/cropBiddingApplication/bid/addBid", addbid,  {responseType: 'text',headers});
     
   }
-  public updateBidder(bidder:any){
-    this.bidder=bidder;
+  public updateBid(bid:any){
+    this.bid=bid;
   }
 
-  public updateBidderMethod(){
-    return this.bidder;
+  public updateBidMethod(){
+    return this.bid;
   }
   public updateCrop(crop:any){
     this.crop =crop;
@@ -43,13 +43,13 @@ export class BidService {
   public getBidsByBidderId(bidderId:number){
     console.log("Getting Bids by Bidder-Id.");
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.get("http://localhost:8586/cropBiddingApplication/bid/getBidsByBidder/" +bidderId, {responseType: 'text',headers});
+    return this.httpService.get("http://localhost:8586/cropBiddingApplication/bid/getBidsByBidder/" +bidderId, {responseType: 'json',headers});
   }
 
   public getBidsByCropId(cropId:number){
     console.log("Crop  By cropID");
     const headers =new HttpHeaders().set('Content_Type', 'text/plain ;charset=utf-8');
-    return this.httpService.get("http://localhost:8586/cropBiddingApplication/bid/getBidsByCrop/" +cropId, {responseType: 'text',headers});
+    return this.httpService.get("http://localhost:8586/cropBiddingApplication/bid/getBidsByCrop/" +cropId, {responseType: 'json',headers});
 
   }
 

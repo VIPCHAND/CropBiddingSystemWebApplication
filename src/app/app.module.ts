@@ -26,6 +26,11 @@ import { MarketComponent } from './market/market.component';
 import { PlacebidComponent } from './placebid/placebid.component';
 import { UpdatebidComponent } from './updatebid/updatebid.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AdmincropComponent } from './admincrop/admincrop.component';
+import { AdminfarmerComponent } from './adminfarmer/adminfarmer.component';
+import { AdminbidComponent } from './adminbid/adminbid.component';
+import { AdminbidderComponent } from './adminbidder/adminbidder.component';
+import { ApprovebidComponent } from './approvebid/approvebid.component';
 
 
 @NgModule({
@@ -49,7 +54,12 @@ import { LogoutComponent } from './logout/logout.component';
     MarketComponent,
     PlacebidComponent,
     UpdatebidComponent,
-    LogoutComponent
+    LogoutComponent,
+    AdmincropComponent,
+    AdminfarmerComponent,
+    AdminbidComponent,
+    AdminbidderComponent,
+    ApprovebidComponent
   ],
   imports: [
     BrowserModule,

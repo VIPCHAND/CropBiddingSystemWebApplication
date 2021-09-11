@@ -3,6 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddCropComponent } from './add-crop/add-crop.component';
 import { AddbidComponent } from './addbid/addbid.component';
 import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
+import { AdminbidComponent } from './adminbid/adminbid.component';
+import { AdminbidderComponent } from './adminbidder/adminbidder.component';
+import { AdmincropComponent } from './admincrop/admincrop.component';
+import { AdminfarmerComponent } from './adminfarmer/adminfarmer.component';
+import { ApprovebidComponent } from './approvebid/approvebid.component';
 import { BidderHomePageComponent } from './bidder-home-page/bidder-home-page.component';
 import { BidderregistrationComponent } from './bidderregistration/bidderregistration.component';
 import { BidlistComponent } from './bidlist/bidlist.component';
@@ -16,6 +21,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { MarketComponent } from './market/market.component';
 import { PlacebidComponent } from './placebid/placebid.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { UpdatebidComponent } from './updatebid/updatebid.component';
 import { ViewbidsComponent } from './viewbids/viewbids.component';
 import { ViewmycropsComponent } from './viewmycrops/viewmycrops.component';
 
@@ -39,7 +45,14 @@ const routes: Routes = [
 { path: 'bhome', component:BidderHomePageComponent },
 {path: 'ahome', component:AdminHomePageComponent},
 { path: 'placebid',component:PlacebidComponent},
-{path : 'logout' ,component:LogoutComponent}
+{path : 'logout' ,component:LogoutComponent},
+{ path: 'admincrop', component: AdmincropComponent },
+{ path: 'adminbidder', component: AdminbidderComponent  },
+{ path: 'adminfarmer', component: AdminfarmerComponent },
+{ path: 'adminbid', component: AdminbidComponent },
+{path : 'bidlist',component:BidlistComponent},
+{ path: 'approvebid',component:ApprovebidComponent},
+{path : 'updatebid',component:UpdatebidComponent}
 
 ];
 

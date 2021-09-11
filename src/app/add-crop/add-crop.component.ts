@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Crops, CropService } from '../services/crop.service';
-import { Farmer } from '../services/farmer.service';
+import { Farmer, FarmerService } from '../services/farmer.service';
 
 @Component({
   selector: 'app-add-crop',
@@ -11,12 +11,14 @@ import { Farmer } from '../services/farmer.service';
 export class AddCropComponent implements OnInit {
  farmer:Farmer;
   crop:Crops;
+  farmerId:number;
 
-  constructor(private router:Router,private service:CropService) { 
+  constructor(private router:Router,private service:CropService,private farmerService:FarmerService) { 
   }
  
   ngOnInit(): any {
-    this.service.getFarmerById(1001).subscribe(
+    this.farmerId = this.farmerService.getfarmerId();
+    this.service.getFarmerById(this.farmerId).subscribe(
       response => this.handleSuccessfulResponse(response),
 
     );

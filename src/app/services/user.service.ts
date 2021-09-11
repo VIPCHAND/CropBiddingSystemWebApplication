@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import{HttpClient, HttpHeaders} from '@angular/common/http';
-import { Farmer } from './farmer.service';
-import { Bidder } from './bidder.service';
+import { Farmer, FarmerService } from './farmer.service';
+import { Bidder, BidderService } from './bidder.service';
+import { AdminService } from './admin.service';
 
 
 
@@ -13,20 +14,36 @@ export class UserService {
   private Url:String="http://localhost:8586/cropBiddingApplication"
 
   status:boolean;
+  role:number;
   userID:String;
   user:User;
   userdata:User = new User();
 
+ constructor(private httpService:HttpClient ,private farmerService:FarmerService,private bidderService:BidderService,private adminService:AdminService) { }
+
   logOut() {
     sessionStorage.removeItem("username");
     sessionStorage.clear();
+    this.status=false;
   }
 
   public setloggin(stat:boolean){
-    this.status = stat;
+    let role = sessionStorage.getItem("role");
+    if(role !== null){
+      this.status = true;
+      this.farmerService.setStatusFarmer(false);
+      this.bidderService.setStatusBidder(false);
+      this.adminService.setStatusAdmin(false);
+
+    }
+     if(role === null){
+      this.status = false;
+    }
+    
 
   }
   public isUserLoggedIn(){
+
     return this.status;
   }
 
@@ -67,7 +84,7 @@ export class UserService {
   return this.httpService.get<User>("http://localhost:8586/cropBiddingApplication/getUser/" + userId);
   }
 
-  constructor(private httpService:HttpClient ) { }
+ 
   public login(user: User) {
     
     console.log("ins service add");
