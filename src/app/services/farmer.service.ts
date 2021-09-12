@@ -13,8 +13,8 @@ status:boolean;
 farmerId:number;
 constructor(private httpService: HttpClient) { }
 
-  public setStatusFarmer(role:boolean){
-    this.status = role;
+  public setStatusFarmer(status:boolean){
+    this.status = status;
   }
   public loggedInAsFarmer() {
     

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Crops, CropService } from '../services/crop.service';
+import { FarmerService } from '../services/farmer.service';
 
 @Component({
   selector: 'app-crop-list',
@@ -10,11 +11,14 @@ import { Crops, CropService } from '../services/crop.service';
 export class CropListComponent implements OnInit {
 
   crops:Crops[];
+  farmerId:number;
 
-  constructor(private service:CropService,private router: Router) { }
+  constructor(private service:CropService,private router: Router,private farmerService:FarmerService) { }
 
   ngOnInit(): any {
-    this.service.fetchCrop().subscribe(
+    this.farmerId = this.farmerService.getfarmerId();
+    this.farmerService.setfarmerId(this.farmerId);
+    this.service.getCropByFarmerIdfalse(this.farmerId).subscribe(
       response => this.handleSuccessfulResponse(response),
 
     );

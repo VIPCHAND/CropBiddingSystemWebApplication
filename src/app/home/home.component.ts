@@ -51,16 +51,7 @@ export class HomeComponent implements OnInit {
       //send all the above data to bidder home and do the same for farmer
       this.router.navigate(['/bhome']);
     }
-    if(this.user.aId !== 0){
-       console.log(this.user.role + "home");
-      console.log(this.user.aId  + "home");
-      this.bidderservice.setbidderId(this.user.bId);
-      this.farmerservice.setStatusFarmer(false);
-      this.bidderservice.setStatusBidder(false);
-      this.adminService.setStatusAdmin(true);
-      this.router.navigate(['/ahome']);
-
-    }
+    
     if(!this.userservice.isUserLoggedIn()){
       this.farmerservice.setStatusFarmer(false);
       this.bidderservice.setStatusBidder(false);

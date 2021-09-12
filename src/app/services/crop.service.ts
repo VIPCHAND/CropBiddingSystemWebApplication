@@ -54,6 +54,11 @@ export class CropService {
     const headers = new HttpHeaders().set('Content_Type','text/plain ; charset = utf-8');
     return this.httpService.get<Crops>("http://localhost:8586/cropBiddingApplication/crop/fetchCropByFarmer/"+farmerid)
   }
+    public getCropByFarmerIdfalse(farmerid:number){
+    console.log("ins service get crop by farmer");
+    const headers = new HttpHeaders().set('Content_Type','text/plain ; charset = utf-8');
+    return this.httpService.get<Crops>("http://localhost:8586/cropBiddingApplication/crop/fetchCropByFarmerfalse/"+farmerid)
+  }
 
   public getFarmerById(farmerid:number){
     console.log("get farmer");

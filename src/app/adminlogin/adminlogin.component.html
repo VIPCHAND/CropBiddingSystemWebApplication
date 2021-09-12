@@ -1,11 +1,9 @@
-
-
 <div class="container">
-    <h2 class="text-info">LOGIN FORM</h2>
+    <h2 class="text-info">Admin Login</h2>
     <form #loginForm="ngForm" class="was-validated" (ngSubmit)="login(loginForm.value)">
         <div class="form-group">
-            <label for="uname">UserId:</label>
-            <input type="text" class="form-control" id="userId" placeholder="Enter UserId" ngModel name="userId"
+            <label for="uname">Admin Id:</label>
+            <input type="text" class="form-control" id="userId" placeholder="Enter Admin Id" ngModel name="userId"
                 required>
             <div class="valid-feedback">Valid.</div>
             <div class="invalid-feedback">Please fill out this field.</div>
@@ -17,17 +15,7 @@
             <div class="valid-feedback">Valid.</div>
             <div class="invalid-feedback">Please fill out this field.</div>
         </div>
-       <div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a style="float: right;" routerLink="/adminlogin">
-            <button class="btn btn-primary" type="submit">Login as Admin</button>
-        </a>
-       </div>
-        
-        <div>
-           
-        </div>
     </form>
-    
-    
 </div>

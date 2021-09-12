@@ -89,18 +89,18 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
             
                     <div class="navbar-nav ml-auto">
-                        <a routerLink="login" *ngIf="!loginService.isUserLoggedIn()"  class="nav-item nav-link">LOGIN</a>
-                        <a routerLink="croplist" *ngIf="farmerservice.loggedInAsFarmer()" class="nav-item nav-link">VIEW ALL CROPS</a>
-                        <a routerLink="addcrop" *ngIf="farmerservice.loggedInAsFarmer()"  class="nav-item nav-link">ADD Crop</a>
+                        <a routerLink="login" *ngIf="!loginService.isUserLoggedIn()"  class="nav-item nav-link">Login</a>
+                        <a routerLink="croplist" *ngIf="farmerservice.loggedInAsFarmer()" class="nav-item nav-link">View all Crops</a>
+                        <a routerLink="addcrop" *ngIf="farmerservice.loggedInAsFarmer()"  class="nav-item nav-link">Add Crop</a>
                         <a routerLink="market" class="nav-item nav-link">Market</a>
                         <a routerLink="addbid" *ngIf="bidderservice.loggedInAsBidder()" class="nav-item nav-link">Place Bid</a>
                         <a routerLink="bidlist" *ngIf="bidderservice.loggedInAsBidder()" class="nav-item nav-link">Bid List</a>
-                        <a routerLink="admincrop"  class="nav-item nav-link">Approve Crop</a>
-                        <a routerLink="adminbidder"  class="nav-item nav-link">Approve Bidder</a>
-                        <a routerLink="adminfarmer" class="nav-item nav-link">Approve Farmer</a>
-                        <a routerLink="approvebid"  class="nav-item nav-link">Approve Bid</a>
+                        <a routerLink="admincrop" *ngIf="adminService.loggedInAsAdmin()" class="nav-item nav-link">Approve Crop</a>
+                        <a routerLink="adminbidder" *ngIf="adminService.loggedInAsAdmin()" class="nav-item nav-link">Approve Bidder</a>
+                        <a routerLink="adminfarmer" *ngIf="adminService.loggedInAsAdmin()" class="nav-item nav-link">Approve Farmer</a>
+                        <a routerLink="approvebid" *ngIf="adminService.loggedInAsAdmin()" class="nav-item nav-link">Approve Bid</a>
                     <!-- *ngIf="adminService.loggedInAsAdmin()" -->
-                        <a routerLink="contact"  class="nav-item nav-link">Contact us</a>
+                        <a routerLink="contact" *ngIf="!adminService.loggedInAsAdmin()"  class="nav-item nav-link">Contact us</a>
                         <a routerLink="registration" *ngIf="!loginService.isUserLoggedIn()" class="nav-item nav-link">Registration</a>
                  
 

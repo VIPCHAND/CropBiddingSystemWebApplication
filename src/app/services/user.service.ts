@@ -22,9 +22,12 @@ export class UserService {
  constructor(private httpService:HttpClient ,private farmerService:FarmerService,private bidderService:BidderService,private adminService:AdminService) { }
 
   logOut() {
-    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("role");
     sessionStorage.clear();
     this.status=false;
+    this.farmerService.setStatusFarmer(false);
+      this.bidderService.setStatusBidder(false);
+      this.adminService.setStatusAdmin(false);
   }
 
   public setloggin(stat:boolean){
@@ -56,7 +59,8 @@ export class UserService {
   }
   setUserData(user:any){
     this.userdata = user;
-    console.log(this.userdata+"user service user data");
+    console.log("user service user data");
+    console.log(this.userdata);
     if(this.userdata.bId === 0 && this.userdata.aId === 0 ){
       sessionStorage.setItem("fId",this.userdata.fId.toString());
       sessionStorage.setItem("role",this.userdata.role);
@@ -69,7 +73,6 @@ export class UserService {
       sessionStorage.setItem("aId",this.userdata.aId.toString());
       sessionStorage.setItem("role",this.userdata.role);
     }
-    
    
 
   }

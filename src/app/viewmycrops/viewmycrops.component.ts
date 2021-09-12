@@ -14,13 +14,16 @@ export class ViewmycropsComponent implements OnInit {
 
      farmer:any;
   crops:Crops[];
+  farmerId:number;
 
   constructor(private cropservice:CropService,private router: Router,private farmerservice:FarmerService,private bidservice:BidService) { 
     this.farmer=this.farmerservice.updateMethod();
   }
 
   ngOnInit(): any {
-    this.cropservice.getCropByFarmerId(1).subscribe(
+    this.farmerId = this.farmerservice.getfarmerId();
+    this.farmerservice.setfarmerId(this.farmerId);
+    this.cropservice.getCropByFarmerId(this.farmerId).subscribe(
       response => this.handleSuccessfulResponse(response),
 
     );

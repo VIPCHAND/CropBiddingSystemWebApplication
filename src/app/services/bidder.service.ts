@@ -6,18 +6,18 @@ import { User } from './user.service';
   providedIn: 'root'
 })
 export class BidderService {
-role:boolean;
+status:boolean;
 bidderId:number;
 
    updatebidder: Bidder;
   constructor(private httpService: HttpClient) { }
 
-  public setStatusBidder(role:boolean){
-    this.role = role;
+  public setStatusBidder(status:boolean){
+    this.status = status;
   }
   public loggedInAsBidder() {
     
-    return this.role;
+    return this.status;
   }
 
   setbidderId(bidderId:number){

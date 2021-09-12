@@ -7,10 +7,12 @@ import { AdminbidComponent } from './adminbid/adminbid.component';
 import { AdminbidderComponent } from './adminbidder/adminbidder.component';
 import { AdmincropComponent } from './admincrop/admincrop.component';
 import { AdminfarmerComponent } from './adminfarmer/adminfarmer.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { ApprovebidComponent } from './approvebid/approvebid.component';
 import { BidderHomePageComponent } from './bidder-home-page/bidder-home-page.component';
 import { BidderregistrationComponent } from './bidderregistration/bidderregistration.component';
 import { BidlistComponent } from './bidlist/bidlist.component';
+import { ContactusComponent } from './contactus/contactus.component';
 import { CropListComponent } from './crop-list/crop-list.component';
 import { EditCropComponent } from './edit-crop/edit-crop.component';
 import { FarmerHomePageComponent } from './farmer-home-page/farmer-home-page.component';
@@ -52,7 +54,9 @@ const routes: Routes = [
 { path: 'adminbid', component: AdminbidComponent },
 {path : 'bidlist',component:BidlistComponent},
 { path: 'approvebid',component:ApprovebidComponent},
-{path : 'updatebid',component:UpdatebidComponent}
+{path : 'updatebid',component:UpdatebidComponent},
+{path : 'adminlogin' , component:AdminloginComponent},
+{path : 'contact' , component:ContactusComponent}
 
 ];
 

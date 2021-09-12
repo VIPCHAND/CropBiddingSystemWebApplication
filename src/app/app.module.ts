@@ -31,6 +31,8 @@ import { AdminfarmerComponent } from './adminfarmer/adminfarmer.component';
 import { AdminbidComponent } from './adminbid/adminbid.component';
 import { AdminbidderComponent } from './adminbidder/adminbidder.component';
 import { ApprovebidComponent } from './approvebid/approvebid.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { ApprovebidComponent } from './approvebid/approvebid.component';
     AdminfarmerComponent,
     AdminbidComponent,
     AdminbidderComponent,
-    ApprovebidComponent
+    ApprovebidComponent,
+    AdminloginComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,

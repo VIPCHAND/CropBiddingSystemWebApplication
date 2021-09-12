@@ -14,17 +14,17 @@ export class AdminService {
   approvecrop : Crops;
   approvebidder:Bidder;
   bid:Bid;
-  role:boolean;
+  status:boolean;
   adminId:number;
   constructor(private httpService: HttpClient) { }
 
   
-  public setStatusAdmin(role:boolean){
-    this.role = role;
+  public setStatusAdmin(status:boolean){
+    this.status = status;
   }
   public loggedInAsAdmin() {
     
-    return this.role;
+    return this.status;
   }
 
   setAdminId(adminId:number){
